@@ -124,7 +124,7 @@ src=""
 allow="autoplay"
 allowfullscreen>
 </iframe>
-
+<audio id="bgMusic" src="song.mp3"></audio>
 <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
@@ -156,8 +156,8 @@ allowfullscreen>
     startHearts();
 
     // Start music when Yes is clicked
-    const music = document.getElementById("musicFrame");
-    music.src = "https://www.youtube.com/embed/6nUoJ4fC8X8?autoplay=1&loop=1&playlist=6nUoJ4fC8X8";
+    const music = document.getElementById("bgMusic");
+music.play();
     }
 
     function startHearts() {
