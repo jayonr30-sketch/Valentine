@@ -38,12 +38,13 @@ button {
     position: absolute;
     background: #ccc;
 }
-
-#photo {
+    #photo {
     display: none;
-    margin-top: 20px;
-    width: 250px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 350px;
     border-radius: 15px;
+    box-shadow: 0 0 20px pink;
 }
 
 @keyframes fall {
@@ -72,11 +73,15 @@ const noBtn = document.getElementById("noBtn");
 const photo = document.getElementById("photo");
 const music = document.getElementById("music");
 
-yesBtn.onclick = function() {
+yesBtn.addEventListener("click", function() {
     photo.style.display = "block";
-    music.play().catch(() => {});
+    
+    music.currentTime = 0;
+    music.volume = 1;
+    music.play();
+
     startHearts();
-};
+});
 
 noBtn.onmouseover = function() {
     noBtn.style.top = Math.random() * 80 + "vh";
