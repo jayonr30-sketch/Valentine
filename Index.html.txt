@@ -108,7 +108,7 @@
     Best Valentine's Day Ever.
 </div>
 
-<img id="photo" src="photo.jpg" alt="Us together ❤️">
+<img id="photo" src="photo.jpg.npg" alt="Us together ❤️">
 
 <div id="signature">
     Forever yours, Jaime ❤️
