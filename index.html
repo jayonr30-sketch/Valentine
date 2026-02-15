@@ -158,18 +158,28 @@ allowfullscreen>
 music.play();
     }
 
-    function startHearts() {
-        setInterval(() => {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            document.body.appendChild(heart);
+      function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-20px";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        heart.style.animation = "fall 5s linear forwards";
+        document.body.appendChild(heart);
 
-            setTimeout(() => heart.remove(), 5000);
-        }, 200);
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
     }
+    @keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
 </script>
 
 </body>
