@@ -4,90 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariyah ❤️</title>
-
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        overflow-y: auto;
-        font-family: 'Georgia', serif;
-        background: linear-gradient(135deg, #8b0000, #ff4f81);
-        text-align: center;
-        color: white;
-    }
-
-    h1 {
-        margin-top: 80px;
-        font-size: 2.8em;
-    }
-
-    .buttons {
-        margin-top: 40px;
-        position: relative;
-        height: 300px;
-    }
-
-    button {
-        padding: 15px 30px;
-        font-size: 1.3em;
-        border: none;
-        border-radius: 40px;
-        cursor: pointer;
-        transition: 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    #yesBtn {
-        background: white;
-        color: #8b0000;
-    }
-
-    #noBtn {
-        background: #ff4f81;
-        color: white;
-        position: absolute;
-    }
-
-    #message {
-        display: none;
-        margin-top: 40px;
-        font-size: 2.2em;
-        animation: fadeIn 1.5s ease forwards;
-    }
-
-    #photo {
-    display: none;
-    margin: 20px auto;
-    max-width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Georgia', serif;
+    background: radial-gradient(circle at center, #3b0000, #000000 70%);
+    color: #f5d6a0;
+    text-align: center;
+    animation: fadeInPage 2s ease forwards;
 }
-    }
 
-    #signature {
-        position: fixed;
-        bottom: 20px;
-        width: 100%;
-        font-size: 1.2em;
-        opacity: 0.8;
-    }
+h1 {
+    margin-top: 120px;
+    font-size: 2.8em;
+    text-shadow: 0 0 15px rgba(255,215,0,0.5);
+    opacity: 0;
+    animation: fadeInText 3s ease forwards;
+}
 
-    .heart {
-        position: fixed;
-        top: -10px;
-        font-size: 20px;
-        animation: fall linear forwards;
-    }
+.buttons {
+    margin-top: 50px;
+    position: relative;
+    height: 250px;
+}
 
-    @keyframes fall {
-        to { transform: translateY(110vh); }
-    }
+button {
+    padding: 15px 35px;
+    font-size: 1.3em;
+    border-radius: 40px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-    }
+button:hover {
+    background: gold;
+    color: black;
+}
+
+#noBtn {
+    position: absolute;
+}
+
+#message {
+    display: none;
+    margin-top: 40px;
+    font-size: 2.5em;
+    color: #ffd700;
+    text-shadow: 0 0 20px gold;
+    animation: fadeInText 2s ease forwards;
+}
+
+#photo {
+    display: none;
+    margin: 30px auto;
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,215,0,0.6);
+    animation: fadeInText 2s ease forwards;
+}
+
+#signature {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    font-size: 1.2em;
+    color: #c9a227;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 
     iframe {
         display: none;
