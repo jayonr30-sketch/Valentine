@@ -1,184 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mariyah ❤️</title>
+<title>My Valentine</title>
+
 <style>
 body {
     margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: 'Georgia', serif;
-    background: radial-gradient(circle at center, #3b0000, #000000 70%);
-    color: #f5d6a0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #8B0000, black);
+    color: white;
     text-align: center;
-    animation: fadeInPage 2s ease forwards;
+    font-family: Georgia, serif;
+    overflow: hidden;
 }
 
 h1 {
-    margin-top: 120px;
-    font-size: 2.8em;
-    text-shadow: 0 0 15px rgba(255,215,0,0.5);
-    opacity: 0;
-    animation: fadeInText 3s ease forwards;
-}
-
-.buttons {
-    margin-top: 50px;
-    position: relative;
-    height: 250px;
+    margin-top: 60px;
+    font-size: 2em;
 }
 
 button {
-    padding: 15px 35px;
-    font-size: 1.3em;
-    border-radius: 40px;
-    border: 2px solid gold;
-    background: transparent;
-    color: gold;
+    padding: 15px 40px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
     cursor: pointer;
-    transition: 0.4s ease;
+    margin: 20px;
 }
 
-button:hover {
-    background: gold;
-    color: black;
+#yesBtn {
+    background: white;
+    color: #8B0000;
 }
 
 #noBtn {
     position: absolute;
-}
-
-#message {
-    display: none;
-    margin-top: 40px;
-    font-size: 2.5em;
-    color: #ffd700;
-    text-shadow: 0 0 20px gold;
-    animation: fadeInText 2s ease forwards;
+    background: #ccc;
 }
 
 #photo {
     display: none;
-    margin: 30px auto;
-    max-width: 350px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(255,215,0,0.6);
-    animation: fadeInText 2s ease forwards;
+    margin-top: 20px;
+    width: 250px;
+    border-radius: 15px;
 }
 
-#signature {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    font-size: 1.2em;
-    color: #c9a227;
-}
-
-@keyframes fadeInPage {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInText {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
-
-    iframe {
-        display: none;
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
     }
+}
 </style>
 </head>
 
-<body onclick="startMusic()">
+<body>
 
 <h1>Mariyah, will you be my Valentine? ❤️</h1>
 
-<div class="buttons">
-    <button id="yesBtn" onclick="sayYes()">Yes 💍</button>
-    <button id="noBtn" onmouseover="moveButton()">No 😅</button>
-</div>
+<button id="yesBtn">Yes 💍</button>
+<button id="noBtn">No</button>
 
-<div id="message">
-    She said YES!!! 🥰❤️✨  
-    Best Valentine's Day Ever.
-</div>
+<img id="photo" src="photo.jpg">
 
-<img id="photo" src="photo.jpg" alt="Us together ❤️">
+<audio id="music" src="music.mp3"></audio>
 
-<div id="signature">
-    Forever yours, Jaime ❤️
-</div>
-
-<!-- Music -->
-<iframe id="musicFrame"
-width="1"
-height="1"
-style="opacity:0.01;"
-src=""
-allow="autoplay"
-allowfullscreen>
-</iframe>
-<audio id="bgMusic" src="song.mp3"></audio>
 <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const music = document.getElementById("musicFrame");
-    let yesScale = 1.3;
-    let musicStarted = false;
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const photo = document.getElementById("photo");
+const music = document.getElementById("music");
 
-    function startMusic() {
-        if (!musicStarted) {
-            music.src += "&autoplay=1&loop=1&playlist=6nUoJ4fC8X8";
-            musicStarted = true;
-        }
-    }
-
-    function moveButton() {
-        const maxX = window.innerWidth - noBtn.offsetWidth;
-        const maxY = window.innerHeight - noBtn.offsetHeight;
-
-        noBtn.style.left = Math.random() * maxX + "px";
-        noBtn.style.top = Math.random() * maxY + "px";
-
-        yesScale += 0.2;
-        yesBtn.style.transform = "scale(" + yesScale + ")";
-    }
-
-     function sayYes() {
-    document.getElementById("message").style.display = "block";
-    document.getElementById("photo").style.display = "block";
+yesBtn.onclick = function() {
+    photo.style.display = "block";
+    music.play().catch(() => {});
     startHearts();
+};
 
-    // Start music when Yes is clicked
-    const music = document.getElementById("bgMusic");
-music.play();
-    }
+noBtn.onmouseover = function() {
+    noBtn.style.top = Math.random() * 80 + "vh";
+    noBtn.style.left = Math.random() * 80 + "vw";
+};
 
-      function startHearts() {
+function startHearts() {
     setInterval(() => {
         const heart = document.createElement("div");
         heart.innerHTML = "❤️";
         heart.style.position = "fixed";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.top = "-20px";
-        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
-        heart.style.animation = "fall 5s linear forwards";
+        heart.style.fontSize = "24px";
+        heart.style.animation = "fall 4s linear forwards";
         document.body.appendChild(heart);
 
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
+        setTimeout(() => heart.remove(), 4000);
     }, 300);
-    }
-    @keyframes fall {
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
 }
 </script>
 
