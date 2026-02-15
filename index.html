@@ -117,7 +117,9 @@
 
 <!-- Music -->
 <iframe id="musicFrame"
-src="https://www.youtube.com/embed/6nUoJ4fC8X8?enablejsapi=1"
+width="0"
+height="0"
+src=""
 allow="autoplay">
 </iframe>
 
@@ -146,10 +148,15 @@ allow="autoplay">
         yesBtn.style.transform = "scale(" + yesScale + ")";
     }
 
-    function sayYes() {
-        document.getElementById("message").style.display = "block";
-        document.getElementById("photo").style.display = "block";
-        startHearts();
+     function sayYes() {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("photo").style.display = "block";
+    startHearts();
+
+    // Start music when Yes is clicked
+    const music = document.getElementById("musicFrame");
+    music.src = "https://www.youtube.com/embed/6nUoJ4fC8X8?autoplay=1&loop=1&playlist=6nUoJ4fC8X8";
+}
     }
 
     function startHearts() {
