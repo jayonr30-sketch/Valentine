@@ -74,11 +74,11 @@ const noBtn = document.getElementById("noBtn");
 const photo = document.getElementById("photo");
 const music = document.getElementById("music");
 
-yesBtn.addEventListener("click", function() {
-    photo.style.display = "block";
-    
+document.getElementById("yesBtn").addEventListener("click", function() {
+    document.getElementById("photo").style.display = "block";
+
+    const music = document.getElementById("music");
     music.currentTime = 0;
-    music.volume = 1;
     music.play();
 
     startHearts();
